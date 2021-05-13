@@ -1,6 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {ReactComponent as StopHand} from '../assets/icons/stop-hand.svg'
-
+import {ReactComponent as SpeakerOn} from '../assets/icons/speaker-on.svg' 
+import {ReactComponent as SpeakerOff} from '../assets/icons/speaker-off.svg' 
+import {ReactComponent as MicrophoneOn} from '../assets/icons/microphone-on.svg'
+import {ReactComponent as MicrophoneOff} from '../assets/icons/microphone-off.svg'
+import {ReactComponent as Group} from '../assets/icons/group.svg'
 
 const GameNavbar = (props) => {
 
@@ -26,6 +30,9 @@ const GameNavbar = (props) => {
     return (
         <div className="navContainer">
             <div className="mainNav">
+                <PlayersButton/>
+                <MicrophoneButton/>
+                <SpeakerButton/>
             </div>
             <div className="circleNav">
                 {mainButton}
@@ -34,6 +41,9 @@ const GameNavbar = (props) => {
     );
 }
 
+/*
+ * ACTION BUTTONS *  
+*/
 const StopButton = (props) => {
 
     const handleClick= (e) =>{
@@ -90,5 +100,55 @@ const EndButton = (props) => {
     );
 }
 
+/*
+ * NORMAL NAV BUTTONS *  
+*/
+
+const PlayersButton = () =>{
+
+    const handleClick= (e) =>{
+        e.preventDefault();
+        console.log("Players");
+    };
+    
+    return (
+        <div className="groupButtonContainer">
+            <div className="navButton group" onClick={handleClick}>
+                <Group/>
+            </div>
+        </div>
+    );
+}
+
+const MicrophoneButton = () =>{
+    const [microphoneOn, setMicrophoneOn] = useState(true);
+
+    const handleClick= (e) =>{
+        e.preventDefault();
+        setMicrophoneOn(!microphoneOn);
+    };
+
+    return (
+        <div className="navButton microphone" onClick={handleClick}>
+            {microphoneOn?<MicrophoneOn/>:<MicrophoneOff/>}
+        </div>
+    );
+}
+
+const SpeakerButton = () =>{
+
+    const [speakerOn, setSpeakerOn] = useState(true);
+
+    const handleClick= (e) =>{
+        e.preventDefault();
+        setSpeakerOn(!speakerOn);
+    };
+
+    return (
+        <div className="navButton speaker" onClick={handleClick}>
+            {speakerOn?<SpeakerOn/>:<SpeakerOff/>}
+        </div>
+    );
+}
 
 export default GameNavbar;

@@ -52,6 +52,8 @@ html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}main{display:b
     --blue: #36A3D6;
     --red: #DE3A55;
     --lightRed: #DEBDC2;
+    --lavandaButton: #616cbf;
+    --contrastLavandaButton: #414880;
 }
 
 /* =====================
@@ -108,7 +110,7 @@ body{
    * COMPONENTS *
 ===================== */
 
-/* Navbars */
+/* *Navbars* */
 
 .simpleNav{
     box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
@@ -130,23 +132,26 @@ body{
 }
 
 .mainNav{
-  width:100vw;
-  background: linear-gradient(#30355e 0%, #383e6e 100%) top/100% 120px;
-  height: 73px;
-  border-radius: 0 0 40px 40px;
+    width:100vw;
+    background: linear-gradient(#30355e 0%, #383e6e 100%) top/100% 120px;
+    height: 73px;
+    border-radius: 0 0 40px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
 }
 
 .circleNav{
-  width:110px;
-  height:110px;
-  border-radius: 50%;
-  background-image: linear-gradient(#30355e -8%, #383e6e 100%);
-  position: absolute;
-  left: calc(50% - 57px);
-  top: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    width:110px;
+    height:110px;
+    border-radius: 50%;
+    background-image: linear-gradient(#30355e -8%, #383e6e 100%);
+    position: absolute;
+    left: calc(50% - 57px);
+    top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .action-button{
@@ -162,12 +167,9 @@ body{
     font-family: var(--boldFont);
     text-shadow: 0px 3px 7px rgba(0, 0, 0, 0.30);
 }
-
 .action-button:hover{
     box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.53);
 }
-
-
 .action-button:active{
     transform: translateY(1px);
 }
@@ -184,7 +186,6 @@ body{
 .action-button.stop{
     background-color: var(--pink);
 }
-
 .action-button.stop svg{
     fill: var(--lightPink);
     width: 62%;
@@ -212,3 +213,80 @@ body{
     font-size: 27px;
 }
 
+.navButton{
+    width: 42px;
+    height: 42px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    margin-bottom: 3px;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+.navButton:hover{
+    background-color: var(--contrastLavandaButton);
+}
+.navButton:active{
+    transform: translateY(1px);
+}
+
+.navButton svg, .navButton svg line{
+    fill: var(--lavandaButton);
+    stroke: var(--lavandaButton);
+}
+
+
+.navButton.speaker{
+    margin-right: 29px;
+}
+.navButton.speaker svg{
+    width: 60%;
+    height: auto;
+}
+
+.navButton.microphone{
+    margin-right: 17px;
+}
+.navButton.microphone svg{
+    width: 60%;
+    height: auto;
+}
+
+.groupButtonContainer{
+    flex-grow: 1;
+}
+
+.navButton.group{
+    margin-left: 29px;
+}
+.navButton.group svg{
+    width: 70%;
+    height: auto;
+}
+
+/* When is a medium phone */
+@media only screen and (max-width: 376px){
+    .navButton.speaker{
+        margin-right: 25px;
+    }
+    .navButton.group{
+        margin-left: 25px;
+    }
+}
+
+@media only screen and (max-width: 376px){
+    .navButton.speaker{
+        margin-right: 25px;
+    }
+    .navButton.group{
+        margin-left: 25px;
+    }
+}
+
+/* *Media Queries for Large Desktop* */
+@media only screen and (min-width: 1025px){
+    .navButton.group{
+        display: none;
+    }
+}
