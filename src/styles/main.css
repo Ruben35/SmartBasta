@@ -43,6 +43,9 @@ html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}main{display:b
     --breakpoint-tablet: 769px;
     --breakpoint-desktop: 1025px;
     --breakpoint-large-desktop: 1440px;
+    /* COLORS */
+    --main-background: linear-gradient(#202442 0%, #384178 100%);
+    --pink: #e371a5;
 }
 
 /* =====================
@@ -77,6 +80,108 @@ html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}main{display:b
     }
 }
 
+/* =====================
+   * GENERAL STYLES *
+===================== */
+
+html {
+    height: 100%;
+}
+
 body{
-    background-color: var(--color);
+    height: 100%;
+    background-image: var(--main-background);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    
+    color:#fff;
+    font-family: var(--lightFont);
+}
+
+/* =====================
+   * COMPONENTS *
+===================== */
+
+/* Navbars */
+
+.simpleNav{
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+    width:100vw;
+    background: linear-gradient(#30355e 0%, #383e6e 100%) top/100% 133px;
+    height: 73px;
+    border-radius: 0 0 40px 40px;
+    font-family: var(--boldFont);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+}
+
+.navContainer{
+    width:100vw;
+    filter: drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.16)); 
+    user-select: none;
+}
+
+.mainNav{
+  width:100vw;
+  background: linear-gradient(#30355e 0%, #383e6e 100%) top/100% 120px;
+  height: 73px;
+  border-radius: 0 0 40px 40px;
+}
+
+.circleNav{
+  width:110px;
+  height:110px;
+  border-radius: 50%;
+  background-image: linear-gradient(#30355e -8%, #383e6e 100%);
+  position: absolute;
+  left: calc(50% - 57px);
+  top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.action-button{
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.action-button:hover{
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.53);
+}
+
+
+.action-button:active{
+    transform: translateY(1px);
+}
+
+.action-button.disable{
+    -webkit-filter: brightness(70%);
+	-moz-filter: brightness(70%);
+	-o-filter: brightness(70%);
+	-ms-filter: brightness(70%);
+	filter: brightness(80%);
+    pointer-events: none;
+}
+
+.stop{
+    background-color: var(--pink);
+}
+
+.stop svg{
+    fill: #ffd1e6;
+    width: 62%;
+    height: auto;
+    transform: translateX(-3px);
+    -webkit-filter: drop-shadow(1px 5px 5px rgba(0, 0, 0, 0.36)); 
+    filter: drop-shadow(1px 5px 5px rgba(0, 0, 0, 0.36)); 
 }

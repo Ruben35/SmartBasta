@@ -1,10 +1,11 @@
-import './styles/main.css';
+import SimpleNavbar from './components/SimpleNavbar'
+import GameNavbar from './components/GameNavbar'
 
 function App() {
   return (
-    <div className="App">
-      
-    </div>
+    <>
+      <GameNavbar/>
+    </>
   );
 }
 
