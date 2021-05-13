@@ -1,10 +1,18 @@
 // import SimpleNavbar from './components/SimpleNavbar'
 import GameNavbar from './components/GameNavbar'
+import PlayersBar from './components/PlayersBar'
 
 function App() {
+
+  const handleOnClickPlayers= (value)=>{
+    console.log(value);
+  }
+
   return (
-    <>
-      <GameNavbar type="stop"/>
+    <><section className="gameContainer">
+        <PlayersBar/>
+        <GameNavbar type="stop" onClickPlayers={handleOnClickPlayers}/>
+      </section>
     </>
   );
 }

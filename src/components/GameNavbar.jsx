@@ -104,16 +104,19 @@ const EndButton = (props) => {
  * NORMAL NAV BUTTONS *  
 */
 
-const PlayersButton = () =>{
+const PlayersButton = ({onClickPlayers}) =>{
+    const [openPlayers,setOpenPlayers] = useState(false);
 
-    const handleClick= (e) =>{
-        e.preventDefault();
-        console.log("Players");
-    };
+    // const handleClick= (e) =>{
+    //     e.preventDefault();
+    //     setOpenPlayers(!openPlayers);
+    //     onClickPlayers(!openPlayers);
+    // };
+    //TODO: Check this https://medium.com/@jasminegump/passing-data-between-a-parent-and-child-in-react-deea2ec8e654
     
     return (
         <div className="groupButtonContainer">
-            <div className="navButton group" onClick={handleClick}>
+            <div className="navButton group" >
                 <Group/>
             </div>
         </div>

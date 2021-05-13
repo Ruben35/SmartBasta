@@ -54,6 +54,8 @@ html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}main{display:b
     --lightRed: #DEBDC2;
     --lavandaButton: #616cbf;
     --contrastLavandaButton: #414880;
+    --purple: #383E6E;
+    --darkPurple: #2F345C;
 }
 
 /* =====================
@@ -109,7 +111,6 @@ body{
 /* =====================
    * COMPONENTS *
 ===================== */
-
 /* *Navbars* */
 
 .simpleNav{
@@ -126,13 +127,13 @@ body{
 }
 
 .navContainer{
-    width:100vw;
+    width:100%;
     filter: drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.16)); 
     user-select: none;
 }
 
 .mainNav{
-    width:100vw;
+    width:100%;
     background: linear-gradient(#30355e 0%, #383e6e 100%) top/100% 120px;
     height: 73px;
     border-radius: 0 0 40px 40px;
@@ -275,18 +276,37 @@ body{
     }
 }
 
-@media only screen and (max-width: 376px){
-    .navButton.speaker{
-        margin-right: 25px;
-    }
-    .navButton.group{
-        margin-left: 25px;
-    }
-}
-
-/* *Media Queries for Large Desktop* */
+/* Button disappear for Large Desktop */
 @media only screen and (min-width: 1025px){
     .navButton.group{
         display: none;
     }
 }
+
+/* *PlayersBar and Game Container* */
+
+@media only screen and (min-width: 1025px){
+    .gameContainer{
+        display: grid;
+        grid-template-columns: 384px auto;
+    }
+    .playersBar{
+        position: inherit !important;
+        display: inline !important;
+    }
+}
+
+.playersBar{
+    height: 100vh;
+    display: none;
+    background-color: var(--purple);
+    box-shadow: 3px 0 6px 0 rgba(0, 0, 0, 0.16);
+    z-index: 1;
+    position: fixed;
+}
+
+.playersBar.open{
+    display: inline;
+}
+
+
