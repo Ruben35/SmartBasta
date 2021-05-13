@@ -9,12 +9,20 @@ const GameNavbar = () => {
             <div className="mainNav">
             </div>
             <div className="circleNav">
-                <div className="action-button stop">
-                    <StopHand/>   
-                </div> 
+                <StopButton/>
             </div>
         </div>  
     );
 }
+
+const StopButton = (props) => {
+
+    return (
+        <div className={"action-button stop "+((props.disable)?"disable":"")}>
+            <StopHand/>   
+        </div> 
+    );
+}
+
 
 export default GameNavbar;
