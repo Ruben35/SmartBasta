@@ -4,7 +4,7 @@ import GameNavbar from './components/GameNavbar'
 function App() {
   return (
     <>
-      <GameNavbar/>
+      <GameNavbar type="stop"/>
     </>
   );
 }
