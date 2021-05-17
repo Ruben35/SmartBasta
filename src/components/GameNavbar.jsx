@@ -6,31 +6,36 @@ import {ReactComponent as MicrophoneOn} from '../assets/icons/microphone-on.svg'
 import {ReactComponent as MicrophoneOff} from '../assets/icons/microphone-off.svg'
 import {ReactComponent as Group} from '../assets/icons/group.svg'
 
-const GameNavbar = (props) => {
+const GameNavbar = ({type,disable, onClickPlayers}) => {
 
     let mainButton;
-    switch(props.type){
+    switch(type){
         case "stop":
-            mainButton=<StopButton disable={props.disable}/>;
+            mainButton=<StopButton disable={disable}/>;
             break;
         case "start":
-            mainButton=<StartButton disable={props.disable}/>;
+            mainButton=<StartButton disable={disable}/>;
             break;
         case "ok":
-            mainButton=<OkButton disable={props.disable}/>;
+            mainButton=<OkButton disable={disable}/>;
             break;
         case "end":
-            mainButton=<EndButton disable={props.disable}/>;
+            mainButton=<EndButton disable={disable}/>;
             break;
         default:
-            mainButton=<StopButton disable={props.disable}/>;
+            mainButton=<StopButton disable={disable}/>;
             break;
     }
+
+    const handleCallbackPlayers = (value) =>{
+        onClickPlayers(value);
+    }
+
 
     return (
         <div className="navContainer">
             <div className="mainNav">
-                <PlayersButton/>
+                <PlayersButton onClickPlayers={handleCallbackPlayers} />
                 <MicrophoneButton/>
                 <SpeakerButton/>
             </div>
@@ -44,7 +49,7 @@ const GameNavbar = (props) => {
 /*
  * ACTION BUTTONS *  
 */
-const StopButton = (props) => {
+const StopButton = ({disable}) => {
 
     const handleClick= (e) =>{
         e.preventDefault();
@@ -52,13 +57,13 @@ const StopButton = (props) => {
     };
 
     return (
-        <div className={"action-button stop "+((props.disable)?"disable":"")} onClick={handleClick}>
+        <div className={"action-button stop "+((disable)?"disable":"")} onClick={handleClick}>
             <StopHand/>   
         </div> 
     );
 }
 
-const StartButton = (props) => {
+const StartButton = ({disable}) => {
 
     const handleClick= (e) =>{
         e.preventDefault();
@@ -66,13 +71,13 @@ const StartButton = (props) => {
     };
 
     return (
-        <div className={"action-button start "+((props.disable)?"disable":"")} onClick={handleClick}>
+        <div className={"action-button start "+((disable)?"disable":"")} onClick={handleClick}>
             START
         </div> 
     );
 }
 
-const OkButton = (props) => {
+const OkButton = ({disable}) => {
 
     const handleClick= (e) =>{
         e.preventDefault();
@@ -80,13 +85,13 @@ const OkButton = (props) => {
     };
 
     return (
-        <div className={"action-button ok "+((props.disable)?"disable":"")} onClick={handleClick}>
+        <div className={"action-button ok "+((disable)?"disable":"")} onClick={handleClick}>
             OK!
         </div> 
     );
 }
 
-const EndButton = (props) => {
+const EndButton = ({disable}) => {
 
     const handleClick= (e) =>{
         e.preventDefault();
@@ -94,7 +99,7 @@ const EndButton = (props) => {
     };
 
     return (
-        <div className={"action-button end "+((props.disable)?"disable":"")} onClick={handleClick}>
+        <div className={"action-button end "+((disable)?"disable":"")} onClick={handleClick}>
             END
         </div> 
     );
@@ -105,18 +110,14 @@ const EndButton = (props) => {
 */
 
 const PlayersButton = ({onClickPlayers}) =>{
-    const [openPlayers,setOpenPlayers] = useState(false);
-
-    // const handleClick= (e) =>{
-    //     e.preventDefault();
-    //     setOpenPlayers(!openPlayers);
-    //     onClickPlayers(!openPlayers);
-    // };
-    //TODO: Check this https://medium.com/@jasminegump/passing-data-between-a-parent-and-child-in-react-deea2ec8e654
+    const handleClick= (e) =>{
+        e.preventDefault();
+        onClickPlayers();
+    };
     
     return (
         <div className="groupButtonContainer">
-            <div className="navButton group" >
+            <div className="navButton group" onClick={handleClick} >
                 <Group/>
             </div>
         </div>

@@ -1,16 +1,19 @@
 // import SimpleNavbar from './components/SimpleNavbar'
+import { useState } from 'react';
 import GameNavbar from './components/GameNavbar'
-import PlayersBar from './components/PlayersBar'
+import PlayersSideBar from './components/PlayersSideBar'
 
 function App() {
 
-  const handleOnClickPlayers= (value)=>{
-    console.log(value);
+  const [playersBarOpen, setPlayersBarOpen] = useState(false);
+  
+  const handleOnClickPlayers= ()=>{
+    setPlayersBarOpen(!playersBarOpen);
   }
 
   return (
     <><section className="gameContainer">
-        <PlayersBar/>
+        <PlayersSideBar open={playersBarOpen} onClose={handleOnClickPlayers}/>
         <GameNavbar type="stop" onClickPlayers={handleOnClickPlayers}/>
       </section>
     </>
