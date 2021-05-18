@@ -6,15 +6,16 @@ import PlayersSideBar from './components/PlayersSideBar'
 function App() {
 
   const [playersBarOpen, setPlayersBarOpen] = useState(false);
-  
-  const handleOnClickPlayers= ()=>{
+
+  const handleOnClickPlayers= () => {
     setPlayersBarOpen(!playersBarOpen);
   }
 
   return (
-    <><section className="gameContainer">
+    <>
+      <section className="gameContainer">
         <PlayersSideBar open={playersBarOpen} onClose={handleOnClickPlayers}/>
-        <GameNavbar type="stop" onClickPlayers={handleOnClickPlayers}/>
+        <GameNavbar type="stop" onClickPlayers={handleOnClickPlayers} />
       </section>
     </>
   );

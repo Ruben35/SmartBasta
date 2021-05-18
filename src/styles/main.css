@@ -289,15 +289,14 @@ body{
     background-color: var(--purple);
     box-shadow: 3px 0 6px 0 rgba(0, 0, 0, 0.16);
     height: 100vh;
-    width: 0px;
 }
 
 .playersBarContainer{
     z-index: 1;
 }
 
-/* When its mobile */
-@media only screen and (max-width: 426px){
+/* Styles when its different of large desktop*/
+@media only screen and (max-width: 1025px){
     .playersBarContainer.close{
         width: 0px;
         height: 0px;
@@ -308,49 +307,43 @@ body{
         display: flex;
         position: absolute;
     }
-    .playersBar.open{
-        width: 302px;
-        transition: width ease-in-out 0.5s;
+    .playersBar{
+        position: relative;
+        transition: left ease-in-out 0.5s;
     }
-    .playersBar.close{
-        width: 0px;
-        transition: width ease-in-out 0.5s;
+    .playersBar.open{
+        left: 0px;
     }
     .playersBarDarkArea.open{
         flex-grow: 1;
-        cursor: pointer;
         background-color: #000;
         opacity: .3;
+        cursor: pointer;
+        transition: opacity ease-in-out 0.5s 0.375s;
         -webkit-tap-highlight-color: transparent;
+    }
+    .playersBarDarkArea.close{
+        opacity: 0;
+    }
+}
+
+/* When its mobile */
+@media only screen and (max-width: 426px){
+    .playersBar{
+        width: 302px;
+    }
+    .playersBar.close{
+        left: -302px;
     }
 }   
 
 /* When its tablet or small desktop */
 @media only screen and (min-width:426px) and (max-width: 1025px) {
-    .playersBarContainer.close{
-        width: 0px;
-        height: 0px;
-    }
-    .playersBarContainer.open{
-        width: 100vw;
-        height: 100vh;
-        display: flex;
-        position: absolute;
-    }
-    .playersBar.open{
+    .playersBar{
         width: 384px;
-        transition: width ease-in-out 0.5s;
     }
     .playersBar.close{
-        width: 0px;
-        transition: width ease-in-out 0.5s;
-    }
-    .playersBarDarkArea.open{
-        flex-grow: 1;
-        background-color: #000;
-        opacity: .3;
-        cursor: pointer;
-        -webkit-tap-highlight-color: transparent;
+        left: -384px;
     }
 }
 
@@ -362,11 +355,22 @@ body{
     }
     .playersBar{
         width: 384px;
-        height: 100vh;
         position: absolute !important;
         display: inline !important;
     }
 }
 
 
+.playersBar .container{
+    padding: 40px 23px 40px 23px;
+}
 
+.playersBar .container .header{
+    display: flex;
+    font-size: 26px;
+}
+
+.playersBar .container .header span:first-child{
+    flex-grow: 1;
+    font-family: var(--boldFont);
+}

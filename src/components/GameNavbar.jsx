@@ -124,7 +124,7 @@ const PlayersButton = ({onClickPlayers}) =>{
     );
 }
 
-const MicrophoneButton = () =>{
+const MicrophoneButton = () => {
     const [microphoneOn, setMicrophoneOn] = useState(true);
 
     const handleClick= (e) =>{

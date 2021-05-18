@@ -33,9 +33,14 @@ const PlayersSideBar = ({open,onClose}) => {
         <div>
             <div className={"playersBarContainer "+(openContainer?"open":"close")}>
                 <div className={bar}>
-                    
+                    <div className="container">
+                        <div className="header">
+                            <span>Posiciones</span>
+                            <span>Ronda 1</span>
+                        </div>
+                    </div>
                 </div>
-                <div className={"playersBarDarkArea "+(open?"open":"")} onClick={handleClick}>
+                <div className={"playersBarDarkArea "+(open?"open":"close")} onClick={handleClick}>
                 </div>
             </div>
         </div>
