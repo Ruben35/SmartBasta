@@ -108,6 +108,8 @@ body{
     font-family: var(--lightFont);
 }
 
+
+
 /* =====================
    * COMPONENTS *
 ===================== */
@@ -407,23 +409,58 @@ hr{
     margin-top: 9px;
 }
 
-/* width */
+/* Scrollbar styling  */
 ::-webkit-scrollbar {
     width: 10px;
   }
-  
-/* Track */
 ::-webkit-scrollbar-track {
     background: transparent; 
 }
-
-/* Handle */
 ::-webkit-scrollbar-thumb {
     background: var(--contrastLavandaButton); 
     border-radius: 30px;
 }
-
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
     background: #484e8c;
 }
+
+/* !ActualPuntuationBar */
+.actualPuntuationBar{
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+/* When its desktop */
+@media only screen and (min-width: 1025px){
+    .actualPuntuationBar{
+        width: calc( 100vw - 384px );
+    }
+}
+
+/* TODO: Falta agregar buen gradiente/sombras y bordeado */
+
+.actualPuntuationBar div{
+    height: 36px;
+    width: 100%;
+    background:  linear-gradient(to top, #30355e, #383e6e);
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.actualPuntuationBar div div{
+    font-family: var(--boldFont);
+    font-size: 26px;
+    height: 90px;
+    width: 179px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* !mainGameScreen */
+.mainGameScreen{
+    grid-column-start: 2;
+    height: calc(100vh - 73px);
+}
+
