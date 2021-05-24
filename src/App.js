@@ -18,7 +18,7 @@ function App() {
         <GameNavbar type="stop" onClickPlayers={handleOnClickPlayers} />
         <div className="mainGameScreen">
           hola
-          <ActualPuntuation/>
+          <ActualPuntuation />
         </div>
       </section>
     </>

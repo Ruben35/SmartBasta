@@ -1,13 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-const ActualPuntuation = () =>{
+const ActualPuntuation = ({puntuation}) =>{
     return(
         <div className="actualPuntuationBar">
-            bootom
             <div> {/*The rectangle*/}
                 <div> 
                     <span>Puntuación</span>
-                    <span>350pts</span>
+                    <span>{puntuation?puntuation:350}pts</span>
                 </div>
             </div>
         </div>
