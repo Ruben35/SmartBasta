@@ -113,6 +113,7 @@ const PlayersButton = ({onClickPlayers}) =>{
     const handleClick= (e) =>{
         e.preventDefault();
         onClickPlayers();
+        e.target.blur();
     };
     
     return (
@@ -130,6 +131,7 @@ const MicrophoneButton = () => {
     const handleClick= (e) =>{
         e.preventDefault();
         setMicrophoneOn(!microphoneOn);
+        e.target.blur();
     };
 
     return (
@@ -146,6 +148,7 @@ const SpeakerButton = () =>{
     const handleClick= (e) =>{
         e.preventDefault();
         setSpeakerOn(!speakerOn);
+        e.target.blur();
     };
 
     return (

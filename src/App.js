@@ -6,7 +6,6 @@ import PlayersSideBar from './components/PlayersSideBar'
 function App() {
 
   const [playersBarOpen, setPlayersBarOpen] = useState(false);
-
   const handleOnClickPlayers= () => {
     setPlayersBarOpen(!playersBarOpen);
   }

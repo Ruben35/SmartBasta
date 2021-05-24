@@ -362,15 +362,68 @@ body{
 
 
 .playersBar .container{
-    padding: 40px 23px 40px 23px;
+    padding: 40px 0px 40px 23px;
+    height: 100vh;
 }
 
 .playersBar .container .header{
     display: flex;
     font-size: 26px;
+    margin-bottom: 42px;
+    padding-right: 23px;
+    align-items: baseline;
 }
 
 .playersBar .container .header span:first-child{
     flex-grow: 1;
     font-family: var(--boldFont);
+}
+
+.playersBar .container .player{
+    display: flex;
+    font-size: 22px;
+    align-items: baseline;
+}
+
+.playersBar .container .player span:first-child{
+    flex-grow: 1;
+    font-size: 27px;
+}
+
+.playersContainer{
+    overflow-y: scroll;
+    height: calc( 100vh - 112px );
+    padding-right: 10px;
+}
+
+.playersContainer div:last-child{
+    padding:100px;
+    user-select: none;
+}
+
+hr{
+    border: transparent;
+    border-top: 3px solid var(--darkPurple);
+    margin-top: 9px;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+/* Track */
+::-webkit-scrollbar-track {
+    background: transparent; 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: var(--contrastLavandaButton); 
+    border-radius: 30px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #484e8c;
 }
